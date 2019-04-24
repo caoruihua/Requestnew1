@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = os.path.dirname ( os.path.dirname ( os.path.abspath ( __file__ ) ) )
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -25,8 +24,8 @@ SECRET_KEY = '2l24cj%pl_8iku9x+vo)1h+!s+e+ga-i86zmx&y$s9k07w!19x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.10.81.233']
-#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.213']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -41,7 +40,7 @@ INSTALLED_APPS = [
     'request.apps.RequestConfig',
     'bootstrap3',
 ]
-#去除csrf
+# 去除csrf
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -66,7 +65,7 @@ ROOT_URLCONF = 'requestnew.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'task')]
+        'DIRS': [os.path.join ( BASE_DIR, 'templates' ), os.path.join ( BASE_DIR, 'task' )]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -93,24 +92,25 @@ DATABASES = {
     }
 }
 '''
-#测试开发库mysql
+# 测试开发库mysql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '47.102.110.163',
-        'PORT' : '3306',
-        'NAME':'request',
-        'USER':'admin',
-        'PASSWORD': '123456',
+        'HOST': 'cdb-rl6yi7n0.bj.tencentcdb.com',
+        'PORT': '10128',
+        'NAME': 'requestnew',
+        'USER': 'root',
+        'PASSWORD': '058t25402',
         'OPTIONS': {
-            'init_command':"SET sql_mode='STRICT_TRANS_TABLES'"
+            # 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+            'sql_mode': 'traditional'
         }
 
     }
 }
 
-#测试开发mongodb
-MONGODB={'ip':'127.0.0.1','port':27017,'NAME':'test','collections':'test_response'}
+# 测试开发mongodb
+MONGODB = {'ip': '127.0.0.1', 'port': 27017, 'NAME': 'test', 'collections': 'test_response'}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -143,9 +143,8 @@ USE_L10N = True
 
 USE_TZ = False
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATICFILES_DIRS = (os.path.join ( BASE_DIR, "static" ),)
